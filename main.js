@@ -98,11 +98,10 @@ const cv = {
     "Disponibilidade para novos desafios e aprendizado contínuo."
 };
 
-// ELEMENTO PRINCIPAL
+
 const principal = document.getElementById("cv");
 principal.className = "curriculo";
 
-// CRIAR ELEMENTOS
 function criarElemento(tag, classe = "", texto) {
   const elemento = document.createElement(tag);
 
@@ -117,7 +116,7 @@ function criarElemento(tag, classe = "", texto) {
   return elemento;
 }
 
-// CRIAR SEÇÕES
+
 function criarSecao(titulo) {
   const secao = document.createElement("section");
 
@@ -130,7 +129,7 @@ function criarSecao(titulo) {
   return secao;
 }
 
-// CRIAR LISTAS
+
 function criarLista(itens) {
   const lista = document.createElement("ul");
 
@@ -140,22 +139,17 @@ function criarLista(itens) {
     );
   });
 
-  return lista;
-}
-
-// ==================================
-// CABEÇALHO
-// ==================================
+  return listas
 
 const cabecalho = criarElemento("header", "cabecalho");
 
-// FOTO DO GUILHERME
+
 const foto = document.createElement("img");
 
 foto.className = "foto";
 foto.alt = "Foto de Guilherme da Luz Camacho";
 
-// TENTAR DIFERENTES NOMES DA FOTO
+
 const nomesFotos = [
   "foto.jpeg",
   "foto.jpeg.jpeg",
@@ -184,12 +178,11 @@ foto.onerror = function () {
   }
 };
 
-// PRIMEIRA TENTATIVA
+
 foto.src = "./" + nomesFotos[indiceFoto];
 
 cabecalho.appendChild(foto);
 
-// NOME E CARGO
 const apresentacao = document.createElement("div");
 
 apresentacao.appendChild(
@@ -203,21 +196,18 @@ apresentacao.appendChild(
 cabecalho.appendChild(apresentacao);
 principal.appendChild(cabecalho);
 
-// ==================================
-// CONTEÚDO DO CURRÍCULO
-// ==================================
 
 const conteudo = criarElemento("div", "conteudo");
 principal.appendChild(conteudo);
 
-// SOBRE MIM
+
 const sobre = criarSecao("Sobre Mim");
 
 sobre.appendChild(
   criarElemento("p", "", cv.resumo)
 );
 
-// CONTATO
+
 const contato = criarSecao("Contato");
 
 const listaContatos = criarElemento("div", "contatos");
@@ -241,7 +231,7 @@ cv.contatos.forEach(item => {
 
 contato.appendChild(listaContatos);
 
-// FORMAÇÃO ACADÊMICA
+
 const formacao = criarSecao("Formação Acadêmica");
 
 cv.formacao.forEach(item => {
@@ -254,7 +244,7 @@ cv.formacao.forEach(item => {
   );
 });
 
-// EXPERIÊNCIA PROFISSIONAL
+
 const experiencia = criarSecao("Experiência Profissional");
 
 cv.experiencia.forEach(item => {
@@ -271,7 +261,7 @@ cv.experiencia.forEach(item => {
   );
 });
 
-// HABILIDADES
+
 const habilidades = criarSecao("Habilidades");
 
 const etiquetas = criarElemento("div", "etiquetas");
@@ -284,7 +274,7 @@ cv.habilidades.forEach(habilidade => {
 
 habilidades.appendChild(etiquetas);
 
-// CONHECIMENTOS COMPLEMENTARES
+
 const conhecimentos = criarSecao(
   "Conhecimentos Complementares"
 );
@@ -299,7 +289,7 @@ cv.conhecimentos.forEach(item => {
   );
 });
 
-// PERFIL PROFISSIONAL
+
 const perfil = criarSecao("Perfil Profissional");
 
 cv.perfil.forEach(item => {
@@ -316,14 +306,14 @@ cv.perfil.forEach(item => {
   perfil.appendChild(bloco);
 });
 
-// INFORMAÇÕES ADICIONAIS
+
 const adicionais = criarSecao("Informações Adicionais");
 
 adicionais.appendChild(
   criarElemento("p", "", cv.adicionais)
 );
 
-// RODAPÉ
+
 principal.appendChild(
   criarElemento(
     "footer",
